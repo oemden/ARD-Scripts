@@ -3,6 +3,7 @@
 ## v0.1 only one harcoded admin
 ## TODOs :
 ## add $1 input for the admin - done
+## use array for multiple admins at once.
 
 ## either edit Admin below or as input argument
 adminuser=( "admin" )
@@ -11,7 +12,7 @@ if [[ ! -z "${1}" ]] ; then
 	adminuser="${1}"
 fi
 
-echo "adminuser: $adminuser"
+#echo "adminuser: $adminuser"
 
 function sudo_check {
 ## sudo Check
@@ -31,7 +32,7 @@ function kickstart_ard {
 }
 
 ## do it
-#sudo_check
-#kickstart_ard
+sudo_check
+kickstart_ard "${adminuser}"
 
 exit 0
